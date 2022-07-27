@@ -5,7 +5,7 @@ class Peliculas extends Component {
   render() {
     return (
       <React.Fragment>
-        <h4>Soy el cmponente de peliculas</h4>
+        <h4>Soy el componente de peliculas</h4>
         <MensajeEstatico/>
       </React.Fragment>
     );
