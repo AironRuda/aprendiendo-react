@@ -38,9 +38,11 @@ class SeccionPruebas extends Component {
     return presentacion;
   }
 
-  sumar(e) {
+  sumar = (e) => {
     //this.contador += 1;
     /**
+     * Se rescribio la funcion como tipo flecha para evitar el bindeo de this
+     * 
      * Para que lea estimulos se deben setiar los estados
      * 
      * La funcion cunaod fue llamada debio ser bindeada con this .bind(this)
@@ -49,7 +51,7 @@ class SeccionPruebas extends Component {
       contador: this.state.contador + 1,
     });
   }
-  restar(e) {
+  restar = (e) => {
     this.setState({
         contador: this.state.contador - 1,
       });
@@ -73,8 +75,11 @@ class SeccionPruebas extends Component {
         <h2 className="subHeader">Estado</h2>
         <p>contador: {this.state.contador}</p>
         <p>
-          <input type="button" value="sumar" onClick={this.sumar.bind(this)} />
-          <input type="button" value="restar" onClick={this.restar.bind(this)} />
+            {/* REDEFINIENDO LAS FUNCIONES DE TIPO FLECHA SE EPUEDE EVITAR EL BINDEO DEL THIS */}
+          {/*<input type="button" value="sumar" onClick={this.sumar.bind(this)} />*/}
+          {/*<input type="button" value="restar" onClick={this.restar.bind(this)} />*/}
+          <input type="button" value="sumar" onClick={this.sumar}/>
+          <input type="button" value="restar" onClick={this.restar}/>
         </p>
       </section>
     );
