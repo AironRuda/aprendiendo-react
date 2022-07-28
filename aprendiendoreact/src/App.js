@@ -4,20 +4,25 @@ import MiComponente from "./components/MiComponente";
 import Peliculas from "./components/Peliculas";
 import Header from "./components/Header";
 import Slider from "./components/Slider";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Slider />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <MiComponente />
-        <Peliculas />
-      </header>
+
+      <div className="center">
+        <section id="content">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <MiComponente />
+          <Peliculas />
+        </section>
+        <Sidebar />
+      </div>
     </div>
   );
 }

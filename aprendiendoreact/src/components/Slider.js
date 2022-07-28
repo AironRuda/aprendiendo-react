@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class Slider extends Component {
   render() {
     return (
-      <div id="slider" class="slider-big">
+      <div id="slider" className="slider-big">
         <h1>Bienvenido al curso de React para JavaScript</h1>
-        <a href="#" class="btn-white">
+        <a href="#" className="btn-white">
           Ir al blog
         </a>
       </div>
