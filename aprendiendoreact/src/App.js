@@ -7,10 +7,15 @@ import Footer from "./components/Footer";
 import SeccionPruebas from "./components/SeccionPruebas";
 
 function App() {
+
+  var buttonString = "IR AL BLOG"
   return (
     <div className="App">
       <Header />
-      <Slider />
+      <Slider 
+        title = "Bienvenido al curso de React para JavaScript" //Exporta como propiedad al objeto en cuestion
+        btn = {buttonString}
+      />
       <div className="center">
         <SeccionPruebas />
         <Sidebar />
