@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import MiComponente from "./MiComponente";
 import Peliculas from "./Peliculas";
 
-class SeccionPrueba extends Component {
+class SeccionPruebas extends Component {
   HolaMundo(nombre, edad) { // Se convierte en un metodo
     var presentacion = (
       <div>
@@ -30,4 +30,4 @@ class SeccionPrueba extends Component {
   }
 }
 
-export default SeccionPrueba;
+export default SeccionPruebas;

@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Slider from "./components/Slider";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import SeccionPrueba from "./components/SeccionPruebas";
+import SeccionPruebas from "./components/SeccionPruebas";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Slider />
       <div className="center">
-        <SeccionPrueba />
+        <SeccionPruebas />
         <Sidebar />
         <div className="clearFix"></div>
       </div>
