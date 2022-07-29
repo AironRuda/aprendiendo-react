@@ -3,28 +3,7 @@ import MensajeEstatico from "./MensajeEstatico";
 import Pelicula from "./Pelicula";
 
 class Peliculas extends Component {
-  state = {
-    //Peliculas se definen en estate por se datos que quiero mostrar en las vistas
-    Peliculas: [
-      {
-        titulo: "Batman vs Superman",
-        image:
-          "https://www.comicverso.com/wp-content/uploads/2019/12/destacada-batmanvssuperman.jpg",
-      },
-      {
-        titulo: "Gran torino",
-        image:
-          "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/14d72f522cfc29e6865181b2d0ab782999e9dc367a37a52bb34025da51fff44b._SX1080_.jpg",
-      },
-      {
-        titulo: "Looper",
-        image:
-          "https://www.themoviedb.org/t/p/w500/t6ogdhdjP9KDCLJR9i4HG3bplQL.jpg",
-      },
-    ],
-    nombre: "Airon Ruda",
-    favorita: {},
-  };
+  state = {};
 
   cambiarTitulo = () => {
     var peliculas = this.state.Peliculas; // Destructuring
@@ -42,6 +21,50 @@ class Peliculas extends Component {
     });
   };
 
+  /**
+   *
+   */
+  componentWillMount() {
+    this.setState({
+      // Se montan los datos al State
+
+      //Peliculas se definen en estate por se datos que quiero mostrar en las vistas
+      Peliculas: [
+        {
+          titulo: "Batman vs Superman",
+          image:
+            "https://www.comicverso.com/wp-content/uploads/2019/12/destacada-batmanvssuperman.jpg",
+        },
+        {
+          titulo: "Gran torino",
+          image:
+            "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/14d72f522cfc29e6865181b2d0ab782999e9dc367a37a52bb34025da51fff44b._SX1080_.jpg",
+        },
+        {
+          titulo: "Looper",
+          image:
+            "https://www.themoviedb.org/t/p/w500/t6ogdhdjP9KDCLJR9i4HG3bplQL.jpg",
+        },
+      ],
+      nombre: "Airon Ruda",
+      favorita: {},
+    });
+  }
+  componentDidMount() {
+    // Cuando ya se ha montado el componente
+  }
+
+  componentWillUnmount() {
+    // Se quita de la ejecucion de un componente
+    // Util para ocultar componentes
+  }
+  /**
+   * Render muestra por pantalla la vista, regresa el resultado en jsx
+   * existente varios metodo que hacen referencia al ciclo de vida de la paguina
+   * componentWillMount, antes de que se monte el resto de la paguina
+   *
+   * @returns
+   */
   render() {
     return (
       <div id="content" className="peliculas">
