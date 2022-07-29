@@ -23,6 +23,23 @@ class Peliculas extends Component {
       },
     ],
     nombre: "Airon Ruda",
+    favorita: {},
+  };
+
+  cambiarTitulo = () => {
+    var peliculas = this.state.Peliculas; // Destructuring
+    //var random = Math.floor(Math.random() * 3);
+    peliculas[0].titulo = "Batman begins";
+
+    this.setState({ peliculas: peliculas });
+  };
+
+  favorita = (pelicula, indice) => {
+    console.log("favorita marcada");
+    console.log(indice);
+    this.setState({
+      favorita: pelicula,
+    });
   };
 
   render() {
@@ -30,12 +47,38 @@ class Peliculas extends Component {
       <div id="content" className="peliculas">
         <h2 className="subHeader">Soy el componente de peliculas</h2>
         <p>Seleccion de las peliculas favoritas de: {this.state.nombre}</p>
+        <p>
+          <button onClick={this.cambiarTitulo}>
+            Cambiar titulo con button
+          </button>
+        </p>
+        <p>
+          <input
+            type="button"
+            value="Cambiar nombre"
+            onClick={this.cambiarTitulo}
+          />
+        </p>
+
+        {this.state.favorita.titulo && ( //Comprueba que el titulo exista, y si existe pone la tiqueta p
+          <p className="favorita">
+            <strong>La pelicula favorita es: </strong>
+            <span>{this.state.favorita.titulo}</span>
+          </p>
+        )}
 
         {/* CREAR COMPONENTE DE PELICULA */}
         <div id="articles" className="peliculas"></div>
         {this.state.Peliculas.map((pelicula, i) => {
           //pelicula se llama la prop que será enviada, dentro de los corchetes está la informacion extraida del map(tambien llamada pelicula)
-          return <Pelicula key={i} pelicula={pelicula} />;
+          return (
+            <Pelicula
+              key={i}
+              pelicula={pelicula}
+              indice={i}
+              marcarFavorita={this.favorita}
+            />
+          );
         })}
       </div>
     );
