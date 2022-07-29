@@ -66,6 +66,17 @@ class Peliculas extends Component {
    * @returns
    */
   render() {
+    var favoritas;
+    if (this.state.favorita.titulo) {
+      favoritas = (
+        <p className="favorita">
+          <strong>La pelicula favorita es: </strong>
+          <span>{this.state.favorita.titulo}</span>
+        </p>
+      );
+    } else {
+      favoritas = <p>No hay pelicula favorita</p>;
+    }
     return (
       <div id="content" className="peliculas">
         <h2 className="subHeader">Soy el componente de peliculas</h2>
@@ -82,14 +93,20 @@ class Peliculas extends Component {
             onClick={this.cambiarTitulo}
           />
         </p>
-
-        {this.state.favorita.titulo && ( //Comprueba que el titulo exista, y si existe pone la tiqueta p
+        {/*METODO CON JSX */}
+        {/*this.state.favorita.titulo ? ( //Comprueba que el titulo exista, y si existe pone la tiqueta p
           <p className="favorita">
             <strong>La pelicula favorita es: </strong>
             <span>{this.state.favorita.titulo}</span>
           </p>
-        )}
-
+        ) : (
+          <p>
+            No hay pelicula favorita
+          </p>
+        )
+        */}
+        {/*METODO CON FUNCION EN RENDER */}
+        {favoritas}
         {/* CREAR COMPONENTE DE PELICULA */}
         <div id="articles" className="peliculas"></div>
         {this.state.Peliculas.map((pelicula, i) => {
