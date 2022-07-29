@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import SeccionPruebas from "./components/SeccionPruebas";
 import Peliculas from "./components/Peliculas";
+import Router from "./Router";
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
         btn = {buttonString}
       />
       <div className="center">
-        <Peliculas />
+        <Router/>
+        {/*<Peliculas />*/}
         <Sidebar />
         <div className="clearFix"></div>
       </div>
