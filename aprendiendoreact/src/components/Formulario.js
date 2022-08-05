@@ -76,6 +76,7 @@ class Formulario extends Component {
               className="mid-form"
               action=""
               onSubmit={this.recibirFormulario}
+              onChange={this.recibirFormulario}
             >
               <div className="formGroup">
                 <label htmlFor="nombre">Nombre</label>
