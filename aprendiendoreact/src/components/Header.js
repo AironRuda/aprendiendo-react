@@ -31,7 +31,7 @@ class Header extends Component {
               </li>
               <li>
                 <NavLink
-                  to="/ruta-prueba"
+                  to="/blog"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Blog
