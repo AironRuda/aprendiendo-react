@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
-
-import Footer from "./components/Footer";
-//import SeccionPruebas from "./components/SeccionPruebas";
-//import Peliculas from "./components/Peliculas";
-
-import MiComponente from "./components/MiComponente";
-import Error from "./components/Error";
 import Home from "./components/Home";
 import Blog from "./components/Blog";
+import Formulario from "./components/Formulario";
+import Error from "./components/Error";
+import Footer from "./components/Footer";
+
+import SeccionPruebas from "./components/SeccionPruebas";
+import Peliculas from "./components/Peliculas";
+import MiComponente from "./components/MiComponente";
 
 class Router extends Component {
   render() {
@@ -23,18 +23,22 @@ class Router extends Component {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/formulario" element={<Formulario />} />
+          <Route path="*" element={<Error />} />
+          
+          <Route path="/peliculas" element={<Peliculas />} />
           <Route path="/segunda-ruta" element={<MiComponente />} />
+          <Route path="/seccionPruebas" element={<SeccionPruebas />} />
+          
           <Route
             path="/pagina-1"
             element={<MiComponente />}
             render={() => {
               <React.Fragment>
-                <h1>Ruta a la ruta: pagina 1</h1>
-                <MiComponente saludo="Hola muy buenas" />
+                <h1 className="subHeader">Ruta a la ruta: pagina 1</h1>
               </React.Fragment>;
             }}
           />
-          <Route path="*" element={<Error />} />
         </Routes>
 
         <div className="clearFix"></div>

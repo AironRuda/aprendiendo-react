@@ -39,7 +39,7 @@ class Header extends Component {
               </li>
               <li>
                 <NavLink
-                  to="/segunda-ruta"
+                  to="/formulario"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Formulario
@@ -47,7 +47,7 @@ class Header extends Component {
               </li>
               <li>
                 <NavLink
-                  to="/pagina-1"
+                  to="/peliculas"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Pagina1
@@ -55,7 +55,7 @@ class Header extends Component {
               </li>
               <li>
                 <NavLink
-                  to="/segunda-ruta"
+                  to="/seccionPruebas"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Pagina2

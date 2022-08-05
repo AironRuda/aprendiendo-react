@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import MensajeEstatico from "./MensajeEstatico";
 import Pelicula from "./Pelicula";
+import Sidebar from "./Sidebar";
+import Slider from "./Slider";
 
 class Peliculas extends Component {
   state = {};
@@ -78,23 +80,29 @@ class Peliculas extends Component {
       favoritas = <p>No hay pelicula favorita</p>;
     }
     return (
-      <div id="content" className="peliculas">
-        <h2 className="subHeader">Soy el componente de peliculas</h2>
-        <p>Seleccion de las peliculas favoritas de: {this.state.nombre}</p>
-        <p>
-          <button onClick={this.cambiarTitulo}>
-            Cambiar titulo con button
-          </button>
-        </p>
-        <p>
-          <input
-            type="button"
-            value="Cambiar nombre"
-            onClick={this.cambiarTitulo}
-          />
-        </p>
-        {/*METODO CON JSX */}
-        {/*this.state.favorita.titulo ? ( //Comprueba que el titulo exista, y si existe pone la tiqueta p
+      <div id="peliculas">
+        <Slider
+          title="Peliculas" //
+          size="slider-small"
+        />
+        <div className="center">
+          <div id="content" className="peliculas">
+            <h2 className="subHeader">Listado de peliculas</h2>
+            <p>Seleccion de las peliculas favoritas de: {this.state.nombre}</p>
+            <p>
+              <button onClick={this.cambiarTitulo}>
+                Cambiar titulo con button
+              </button>
+            </p>
+            <p>
+              <input
+                type="button"
+                value="Cambiar nombre"
+                onClick={this.cambiarTitulo}
+              />
+            </p>
+            {/*METODO CON JSX */}
+            {/*this.state.favorita.titulo ? ( //Comprueba que el titulo exista, y si existe pone la tiqueta p
           <p className="favorita">
             <strong>La pelicula favorita es: </strong>
             <span>{this.state.favorita.titulo}</span>
@@ -105,21 +113,25 @@ class Peliculas extends Component {
           </p>
         )
         */}
-        {/*METODO CON FUNCION EN RENDER */}
-        {favoritas}
-        {/* CREAR COMPONENTE DE PELICULA */}
-        <div id="articles" className="peliculas"></div>
-        {this.state.Peliculas.map((pelicula, i) => {
-          //pelicula se llama la prop que será enviada, dentro de los corchetes está la informacion extraida del map(tambien llamada pelicula)
-          return (
-            <Pelicula
-              key={i}
-              pelicula={pelicula}
-              indice={i}
-              marcarFavorita={this.favorita}
-            />
-          );
-        })}
+            {/*METODO CON FUNCION EN RENDER */}
+            {favoritas}
+            {/* CREAR COMPONENTE DE PELICULA */}
+            <div id="articles" className="peliculas"></div>
+            {this.state.Peliculas.map((pelicula, i) => {
+              //pelicula se llama la prop que será enviada, dentro de los corchetes está la informacion extraida del map(tambien llamada pelicula)
+              return (
+                <Pelicula
+                  key={i}
+                  pelicula={pelicula}
+                  indice={i}
+                  marcarFavorita={this.favorita}
+                />
+              );
+            })}
+          </div>
+
+          <Sidebar blog="false" />
+        </div>
       </div>
     );
   }
