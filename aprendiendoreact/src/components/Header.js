@@ -4,6 +4,9 @@ import { NavLink } from "react-router-dom";
 
 class Header extends Component {
   render() {
+    let activeStyle = {
+      textDecoration: "underline",
+    };
     return (
       <header id="header">
         <div className="center">
@@ -19,19 +22,44 @@ class Header extends Component {
           <nav id="menu">
             <ul>
               <li>
-                <NavLink to="/">Inicio</NavLink>
+                <NavLink
+                  to="/home"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Inicio
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/ruta-prueba">Blog</NavLink>
+                <NavLink
+                  to="/ruta-prueba"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Blog
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/segunda-ruta">Formulario</NavLink>
+                <NavLink
+                  to="/segunda-ruta"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Formulario
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/ruta-prueba">Pagina1</NavLink>
+                <NavLink
+                  to="/pagina-1"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Pagina1
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/segunda-ruta">Pagina2</NavLink>
+                <NavLink
+                  to="/segunda-ruta"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Pagina2
+                </NavLink>
               </li>
             </ul>
           </nav>

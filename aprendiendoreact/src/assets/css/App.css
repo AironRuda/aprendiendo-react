@@ -60,6 +60,10 @@ body {
   float: right; /*Envia los elementos hacia la derecha*/
   font-size: 18px;
 }
+
+.activeClassName {
+  border-bottom: 2px #4daec9;
+}
 #menu ul {
   line-height: 85px;
 

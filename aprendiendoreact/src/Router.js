@@ -26,8 +26,17 @@ class Router extends Component {
           {/* Configurar rutas y paguinas */}
           <Routes>
             <Route path="/" element={<Peliculas />} />
+            <Route path="/home" element={<Peliculas />} />
             <Route path="/ruta-prueba" element={<SeccionPruebas />} />
             <Route path="/segunda-ruta" element={<MiComponente />} />
+            <Route path="/pagina-1" element={<MiComponente/>} render={()=>{
+              <React.Fragment>
+                <h1>Ruta a la ruta: pagina 1</h1>
+                <MiComponente saludo="Hola muy buenas"/>
+              </React.Fragment>
+            }}
+            
+            />
             <Route path="*" element={<Error />} />
           </Routes>
           <Sidebar />
