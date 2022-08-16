@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Global from "../Global";
 
 class Articles extends Component {
+  url = Global.url;
+
   state = {
     articles: [],
     status: null,
@@ -14,7 +17,7 @@ class Articles extends Component {
 
   componentDidMount = () => {
     axios
-      .get("http://localhost:3900/api/articles") //
+      .get(this.url + "articles") //
       .then((res) => {
         this.setState({
           articles: res.data.articles,
@@ -27,12 +30,36 @@ class Articles extends Component {
 
   render() {
     if (this.state.articles.length >= 1) {
-      return (
-        <div id="articles">
-          <h1>Listado articulos</h1>
-          
-        </div>
-      );
+      var listArticles = this.state.articles.map((article) => {
+        return (
+          <article className="article-item" id="article-template">
+            <div className="image-wrap">
+              {article.image !== null 
+                ?
+                  (<img
+                    src={this.url + "get-image/" + article.image}
+                    alt={article.title}
+                  />)
+                :
+                  (<img
+                    src="https://encolombia.com/wp-content/uploads/2012/01/Raza-Beagle-Perro.jpg"
+                    alt={article.title}
+                  />)
+
+              }
+
+
+              
+            </div>
+            <h2>{article.title}</h2>
+            <span className="date">{article.date}</span>
+            <a href="#">Leer mas</a>
+
+            <div className="clearFix"></div>
+          </article>
+        );
+      });
+      return <div id="articles">{listArticles}</div>;
     } else if (
       this.state.articles.length === 0 &&
       this.state.status === "success"
@@ -47,7 +74,7 @@ class Articles extends Component {
         <div id="articles">
           <h2>Cargando...</h2>
         </div>
-      )
+      );
     }
   }
 }
