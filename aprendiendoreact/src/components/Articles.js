@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Global from "../Global";
+import Moment from "react-moment";
+import "moment/locale/es";
 
 class Articles extends Component {
   url = Global.url;
@@ -34,25 +36,22 @@ class Articles extends Component {
         return (
           <article className="article-item" id="article-template">
             <div className="image-wrap">
-              {article.image !== null 
-                ?
-                  (<img
-                    src={this.url + "get-image/" + article.image}
-                    alt={article.title}
-                  />)
-                :
-                  (<img
-                    src="https://encolombia.com/wp-content/uploads/2012/01/Raza-Beagle-Perro.jpg"
-                    alt={article.title}
-                  />)
-
-              }
-
-
-              
+              {article.image !== null ? (
+                <img
+                  src={this.url + "get-image/" + article.image}
+                  alt={article.title}
+                />
+              ) : (
+                <img
+                  src="https://encolombia.com/wp-content/uploads/2012/01/Raza-Beagle-Perro.jpg"
+                  alt={article.title}
+                />
+              )}
             </div>
             <h2>{article.title}</h2>
-            <span className="date">{article.date}</span>
+            <span className="date">
+              <Moment fromNow>{article.date}</Moment>
+            </span>
             <a href="#">Leer mas</a>
 
             <div className="clearFix"></div>
