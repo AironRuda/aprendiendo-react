@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Global from "../Global";
 import Moment from "react-moment";
@@ -12,12 +13,32 @@ class Articles extends Component {
     status: null,
   };
 
-  alo() {
-    //Cargar antes de mostrar algo
-    this.getArticles();
+  //alo() {
+  // //Cargar antes de mostrar algo
+  //  this.getArticles();
+  //}
+
+  componentDidMount() {
+    var home = this.props.home;
+    if (home) {
+      this.getLastArticles();
+    } else {
+      this.getArticles();
+    }
   }
 
-  componentDidMount = () => {
+  getLastArticles = () => {
+    axios
+      .get(this.url + "articles/lasr") //
+      .then((res) => {
+        this.setState({
+          articles: res.data.articles,
+          status: "success",
+        });
+      });
+  };
+
+  getArticles = () => {
     axios
       .get(this.url + "articles") //
       .then((res) => {
@@ -25,8 +46,6 @@ class Articles extends Component {
           articles: res.data.articles,
           status: "success",
         });
-
-        console.log(this.state);
       });
   };
 
@@ -52,7 +71,7 @@ class Articles extends Component {
             <span className="date">
               <Moment fromNow>{article.date}</Moment>
             </span>
-            <a href="#">Leer mas</a>
+            <Link to={"/blog/articulo/" + article._id}>Leer mas</Link>
 
             <div className="clearFix"></div>
           </article>

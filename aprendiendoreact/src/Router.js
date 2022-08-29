@@ -7,12 +7,18 @@ import Blog from "./components/Blog";
 import Formulario from "./components/Formulario";
 import Error from "./components/Error";
 import Footer from "./components/Footer";
+import Search from "./components/Search";
+import User from "./components/User";
 
 import SeccionPruebas from "./components/SeccionPruebas";
 import Peliculas from "./components/Peliculas";
 import MiComponente from "./components/MiComponente";
 
 class Router extends Component {
+
+  
+
+
   render() {
     return (
       <BrowserRouter>
@@ -23,13 +29,27 @@ class Router extends Component {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
+
+          <Route path="/user/:username" element={<User/>}/>
+
+          <Route path="/blog/busqueda/:search" element={<Search/>}/>
+
+          <Route
+            path="/blog/articulo/:id"
+            render={() => (
+              <div>
+                <h2>Paguina individual</h2>
+              </div>
+            )}
+          />
+
           <Route path="/formulario" element={<Formulario />} />
           <Route path="*" element={<Error />} />
-          
+
           <Route path="/peliculas" element={<Peliculas />} />
           <Route path="/segunda-ruta" element={<MiComponente />} />
           <Route path="/seccionPruebas" element={<SeccionPruebas />} />
-          
+
           <Route
             path="/pagina-1"
             element={<MiComponente />}
